@@ -69,11 +69,10 @@
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)</span>
-                    <span class="author-block", style="display: block;"><sup>2</sup>Youtu Lab, Tencent</span> 
-                    <span class="author-block"><sup>3</sup>Department of Computer Science and Engineering, Sun Yat-sen University</span>
+                    <span class="author-block", style="display: block;"><sup>2</sup>Tencent Youtu Lab &nbsp; &nbsp; &nbsp; <sup>3</sup>Sun Yat-sen University</span>
                     <span class="author-block"><sup>4</sup>Department of Computer Science and Engineering, The Hong Kong University of Science and Technology</span>
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-                    <span class="eql-cntrb"><small><br><sup>&dagger;</sup>Indicates Corresponding Author</small></span>
+                    <span class="eql-cntrb"><small><br>&dagger; Indicates Corresponding Author</small></span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -90,7 +89,7 @@
                     </span>
 
                     <!-- Supplementary PDF link -->
-                    <span class="link-block">
+                    <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -98,11 +97,11 @@
                       </span>
                       <span>Supplementary</span>
                     </a>
-                  </span>
+                  </span> -->
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/jiaming-zhou" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -121,6 +120,16 @@
                   <span>arXiv</span>
                 </a>
               </span>
+
+              <span class="link-block">
+                <a href="#download_features" target="_self"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-folder-open"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
             </div>
           </div>
         </div>
@@ -131,11 +140,10 @@
 
 
 <!-- Teaser video-->
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
@@ -144,7 +152,7 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -155,8 +163,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Developing end-to-end models for long-video action understanding tasks presents significant computational and memory challenges.
+            Existing works generally build models on long-video features extracted by off-the-shelf action recognition models, 
+            which are trained on short-video datasets in different domains, making the extracted features suffer domain discrepancy. 
+            To avoid this, action recognition models can be end-to-end trained on clips, 
+            which are trimmed from long videos and labeled using action interval annotations. 
+            Such fully supervised annotations are expensive to collect. 
+            Thus, a weakly supervised method is needed for long-video action understanding at scale. 
+            Under the weak supervision setting, action labels are provided for the whole video without precise start and end times of the action clip. 
+            To this end, we propose an AdaFocus framework. AdaFocus estimates the spike-actionness and temporal positions of actions, 
+            enabling it to adaptively focus on action clips that facilitate better training without the need for precise annotations. 
+            Experiments on three long-video datasets show its effectiveness. Remarkably, on two of datasets, 
+            models trained with AdaFocus under weak supervision outperform those trained under full supervision. 
+            Furthermore, we form a weakly supervised feature extraction pipeline with our AdaFocus, 
+            which enables significant improvements on three long-video action understanding tasks.
           </p>
+          <p><img src="static/images/motivation.jpg" alt="motivation" width="1000" height="200"></p>
         </div>
       </div>
     </div>
@@ -164,93 +186,193 @@
 </section>
 <!-- End paper abstract -->
 
+<div class="container is-max-desktop">
+<h5 class="title is-5" style="color: #FF0066">“Can action recognition models be effectively trained end-to-end on long-video datasets under weak supervision?”</h5>
+</div>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+
+<section class="section is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-4">Contribution #1</h2>
+          <div class="level-set has-text-justified">
+            <p>
+              An AdaFocus learning framework is proposed, which adaptively focuses on actions and clips with cleaner supervision, enabling efficient weakly supervised end-to-end training on long videos;
+            </p>
+          </div>
+          <img src="static/images/overview.jpg" alt="overview" style="margin-left: 250px;" width="500" height="800"/>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Contribution #2</h2>
+      <p>Experimental results across three long video datasets and six CNN-based or Transformer-based models validate the effectiveness of AdaFocus. Remarkably, on the two largest datasets, AdaFocus enables models trained under weak (noisy) supervision to outperform those trained under full (clean) supervision;</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item blend-img-item item-full-pro">
+          <img src="static/images/charades_results.jpg" width="500" height="800" style="margin-left: 250px;" alt="Detailed PRO" class="center-image blend-img-background"/>
+        </div>
+        <div class="item blend-img-item item-full-iroc">
+          <img src="static/images/breakfast_thumos_results.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4" style="color: #FF0066">Contribution #3</h2>
+      <p style="color: #f35494">Using AdaFocus, a new feature extraction pipeline for long-video understanding that minimizes domain discrepancy is established for long-video datasets. This framework yields significant performance improvements across three downstream long video understanding tasks: temporal sentence grounding, long-video activity recognition, and action segmentation.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item blend-img-item item-full-pro">
+          <img src="static/images/downstream_tsg.jpg" width="2000" height="800" alt="Detailed PRO" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Temporal Sentence Grounding on Charades dataset.
+          </h2>
+        </div>
+        <div class="item blend-img-item item-full-iroc">
+          <img src="static/images/downstream_ltar.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Long-video Activity Recognition on Breakfast dataset.
+          </h2>
+        </div>
+        <div class="item blend-img-item item-full-iroc">
+          <img src="static/images/downstream_tas.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Temporal Action Segmentation on Breakfast dataset.
+          </h2>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-4" style="color: #FF0066"><a id="download_features">New Features of Long-video Datasets</a></h2>
+          <div class="level-set has-text-justified">
+            <p>
+              We will release all the newly extracted long-video features. Stay tuned!
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
+<!-- Paper Conclusion -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>
+            Efficiently end-to-end training on long videos under weak supervision is challenging. 
+            This work proposes a weakly supervised end-to-end training framework named AdaFocus, 
+            which adaptively focuses on actions and clips with cleaner supervision for model optimization. 
+            Experimental results on three datasets show that our AdaFocus can help weakly supervised models perform better than noisy supervised models, 
+            sometimes even fully supervised models. Moreover, with our AdaFocus framework, 
+            the long-video feature extraction pipeline is rebuilt, 
+            which significantly improves the performance of existing models on three long-video action understanding tasks, 
+            providing better foundations for the development of long-video action understanding.
+          </p>
+          <p style="color: #f35494">
+            <strong>THIS</strong> is a long-term maintenance project, and will support more long-video datasets and long-video action understanding tasks in the future.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper Conclusion -->
+
+
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
             <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
@@ -258,7 +380,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
 
@@ -267,7 +389,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -277,7 +399,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -296,11 +418,8 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+          <p style="text-align:center;font-size:small;">
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
           </p>
 
         </div>
