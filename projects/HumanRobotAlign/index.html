@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>AdaFocus: Towards End-to-end Weakly Supervised Learning for Long-Video Action Understanding</title>
+  <title>Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation</title>
   <link rel="icon" type="image/x-icon" href="static/images/UST.svg.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -52,25 +52,29 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">AdaFocus: Towards End-to-end Weakly Supervised Learning for Long-Video Action Understanding</h1>
+            <h1 class="title is-1 publication-title">Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
                 <!-- <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Jiaming Zhou</a><sup>*</sup>,</span> -->
                 <a href="https://jiaming-zhou.github.io/" target="_blank">Jiaming Zhou</a><sup>1</sup> &nbsp;</span>
                 <span class="author-block">
-                  <a href="https://scholar.google.com/citations?user=nEjwfNEAAAAJ&hl=zh-CN" target="_blank">Hanjun Li</a><sup>2</sup> &nbsp;</span>
+                <a href="https://scholar.google.com/citations?user=arny77IAAAAJ&hl=en" target="_blank">Teli Ma</a><sup>1</sup> &nbsp;</span>
+                <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=tkUBeeQAAAAJ&hl=en" target="_blank">Kun-Yu Lin</a><sup>2</sup> &nbsp;</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=en&user=QOwOHZMAAAAJ" target="_blank">Ronghe Qiu</a><sup>1</sup> &nbsp;</span>
                   <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=tkUBeeQAAAAJ&hl=en" target="_blank">Kun-Yu Lin</a><sup>3</sup> &nbsp;
-                    <span class="author-block">
-                      <a href="https://junweiliang.me" target="_blank">Junwei Liang</a><sup>1,4,&dagger;</sup>
-                  </span>
-                  </div>
+                    <a href="https://openreview.net/profile?id=~Zifan_Wang7" target="_blank">Zifan Wang</a><sup>1</sup> &nbsp;</span>
+                <span class="author-block">
+                <a href="https://junweiliang.me" target="_blank">Junwei Liang</a><sup>1,3,&dagger;</sup>
+                </span>
+                </div>
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)</span>
-                    <span class="author-block", style="display: block;"><sup>2</sup>Tencent Youtu Lab &nbsp; &nbsp; &nbsp; <sup>3</sup>Sun Yat-sen University</span>
-                    <span class="author-block"><sup>4</sup>Department of Computer Science and Engineering, The Hong Kong University of Science and Technology</span>
+                    <span class="author-block"><sup>2</sup>Computer Science and Engineering, Sun Yat-sen University</span>
+                    <span class="author-block"><sup>3</sup>CSE, The Hong Kong University of Science and Technology</span>
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                     <span class="eql-cntrb"><small><br>&dagger; Indicates Corresponding Author</small></span>
                   </div>
@@ -79,7 +83,7 @@
                     <div class="publication-links">
                       <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2311.17118.pdf" target="_blank"
+                        <a href="xxx" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -112,7 +116,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2311.17118" target="_blank"
+                  <a href="xxx" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -120,14 +124,6 @@
                   <span>arXiv</span>
                 </a>
               </span>
-
-              <span class="link-block">
-                <a href="#download_features" target="_self"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fas fa-folder-open"></i>
-                </span>
-                <span>Download (coming soon)</span>
               </a>
             </span>
             </div>
@@ -138,9 +134,11 @@
   </div>
 </section>
 
+
 <div class="container is-max-desktop">
   <h6 class="title is-5" align="center" style="color: #000000">The code, data, and models will be released upon the acceptance of paper.</h6>
 </div>
+
 
 <!-- Teaser video-->
 <!-- <section class="hero teaser">
@@ -166,32 +164,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Developing end-to-end models for long-video action understanding tasks presents significant computational and memory challenges.
-            Existing works generally build models on long-video features extracted by off-the-shelf action recognition models, 
-            which are trained on short-video datasets in different domains, making the extracted features suffer domain discrepancy. 
-            To avoid this, action recognition models can be end-to-end trained on clips, 
-            which are trimmed from long videos and labeled using action interval annotations. 
-            Such fully supervised annotations are expensive to collect. 
-            Thus, a weakly supervised method is needed for long-video action understanding at scale. 
-            Under the weak supervision setting, action labels are provided for the whole video without precise start and end times of the action clip. 
-            To this end, we propose an AdaFocus framework. AdaFocus estimates the spike-actionness and temporal positions of actions, 
-            enabling it to adaptively focus on action clips that facilitate better training without the need for precise annotations. 
-            Experiments on three long-video datasets show its effectiveness. Remarkably, on two of datasets, 
-            models trained with AdaFocus under weak supervision outperform those trained under full supervision. 
-            Furthermore, we form a weakly supervised feature extraction pipeline with our AdaFocus, 
-            which enables significant improvements on three long-video action understanding tasks.
+            Learning generalizable visual dynamic representation across different embodied environments is crucial for real-world robotic manipulation. 
+            As the scale and diversity of robot demonstration data are limited, recent works have turned to large-scale pre-training using human data.
+            However, the morphological differences between humans and robots introduce a significant human-robot domain discrepancy, challenging the generalization of these human-data pre-trained models to downstream manipulation tasks.
+            To address this, we propose a novel adaptation paradigm that utilizes readily available paired human-robot video data to bridge the discrepancy. 
+            Following this paradigm, our method exploits a human-robot contrastive alignment loss to align the semantics of human and robot videos, adapting pre-trained models to the robotic domain in a parameter-efficient manner.
+            The experiments demonstrate significant improvements on 25 tasks across three different benchmarks, where the single-task, language-conditioned multi-task settings are covered, and two different pre-trained models are evaluated. 
+            On the large RLBench benchmark, our adaptation method achieves an average improvement of 8.9% in success rate over the pre-trained R3M model across multiple tasks.  
           </p>
-          <p><img src="static/images/motivation.jpg" alt="motivation" width="1000" height="200"></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- End paper abstract -->
-
-<div class="container is-max-desktop">
-<h5 class="title is-5" style="color: #FF0066">“Can action recognition models be effectively trained end-to-end on long-video datasets under weak supervision?”</h5>
-</div>
 
 <section class="section is-small">
   <div class="container is-max-desktop">
@@ -200,85 +186,65 @@
         <div class="content">
           <h2 class="title is-4">Contribution #1</h2>
           <div class="level-set has-text-justified">
-            <p>
-              An AdaFocus learning framework is proposed, which adaptively focuses on actions and clips with cleaner supervision, enabling efficient weakly supervised end-to-end training on long videos;
-            </p>
+            <p>We highlight the human-robot domain discrepancy in visual pre-training for robotic manipulation, and provide a new adaptation paradigm that simultaneously alleviates the domain discrepancy and maintains the versatility of pre-trained models; </p>
+            <p></p>
+            </div>
           </div>
-          <img src="static/images/overview.jpg" alt="overview" style="margin-left: 250px;" width="500" height="800"/>
+          <img src="static/images/motivation.pdf" alt="motivation" style="margin-left: 60px;" width="800" height="200">
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<section class="is-small">
-  <!-- <div class="hero-body"> -->
-    <div class="container is-max-desktop">
-      <h2 class="title is-4">Contribution #2</h2>
-      <p>Experimental results across three long video datasets and six CNN-based or Transformer-based models validate the effectiveness of AdaFocus. Remarkably, on the two largest datasets, AdaFocus enables models trained under weak (noisy) supervision to outperform those trained under full (clean) supervision;</p>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item blend-img-item item-full-pro">
-          <img src="static/images/charades_results.jpg" width="500" height="800" style="margin-left: 250px;" alt="Detailed PRO" class="center-image blend-img-background"/>
-        </div>
-        <div class="item blend-img-item item-full-iroc">
-          <img src="static/images/breakfast_thumos_results.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
-        </div>
-        </div>
-      </div>
-    </div>
-  <!-- </div> -->
-</section>
-
-
-<section class="is-small">
-  <!-- <div class="hero-body"> -->
-    <div class="container is-max-desktop">
-      <h2 class="title is-4" style="color: #FF0066">Contribution #3</h2>
-      <p style="color: #f35494">Using AdaFocus, a new feature extraction pipeline for long-video understanding that minimizes domain discrepancy is established for long-video datasets. This framework yields significant performance improvements across three downstream long video understanding tasks: temporal sentence grounding, long-video activity recognition, and action segmentation.</p>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item blend-img-item item-full-pro">
-          <img src="static/images/downstream_tsg.jpg" width="2000" height="800" alt="Detailed PRO" class="center-image blend-img-background"/>
-          <h2 class="subtitle has-text-centered">
-            Temporal Sentence Grounding on Charades dataset.
-          </h2>
-        </div>
-        <div class="item blend-img-item item-full-iroc">
-          <img src="static/images/downstream_ltar.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
-          <h2 class="subtitle has-text-centered">
-            Long-video Activity Recognition on Breakfast dataset.
-          </h2>
-        </div>
-        <div class="item blend-img-item item-full-iroc">
-          <img src="static/images/downstream_tas.jpg" width="600" height="800" style="margin-left: 150px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
-          <h2 class="subtitle has-text-centered">
-            Temporal Action Segmentation on Breakfast dataset.
-          </h2>
-        </div>
-        </div>
-      </div>
-    </div>
-  <!-- </div> -->
-</section>
-
 
 <section class="section is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full">
         <div class="content">
-          <h2 class="title is-4" style="color: #FF0066"><a id="download_features">New Features of Long-video Datasets</a></h2>
+          <h2 class="title is-4">Contribution #2</h2>
           <div class="level-set has-text-justified">
-            <p>
-              We will release all the newly extracted long-video features. Stay tuned!
-            </p>
+            <p>We propose a Human-Robot Semantic Alignment method, which adapts pre-trained models with parameter-efficient design and exploits a human-robot contrastive alignment loss for effectively mitigating the domain discrepancy;</p>
+            <p></p>
+            </div>
           </div>
+          <img src="static/images/method.pdf" alt="method" style="margin-left: 60px;" width="800" height="200">
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<section class="is-small">
+  <!-- <div class="hero-body"> -->
+    <div class="container is-max-desktop">
+      <h2 class="title is-4" style="color: #000000">Contribution #3</h2>
+      <p style="color: #030303">We evaluate the effectiveness of our method in three different environments, covering 7 single-tasks and 18 language-conditioned multi-tasks, as well as pre-trained models with different pre-training methodologies.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item blend-img-item item-full-pro">
+          <img src="static/images/downstream_adroit.jpg" width="600" height="600" style="margin-left: 150px;" alt="Detailed PRO" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Manipulation Success Rate of two tasks in Adroit.
+          </h2>
+        </div>
+        <div class="item blend-img-item item-full-iroc">
+          <img src="static/images/downstream_metaworld.jpg" width="800" height="400" style="margin-left: 50px;" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Manipulation Success Rate of five tasks in Metaworld.
+          </h2>
+        </div>
+        <div class="item blend-img-item item-full-iroc">
+          <img src="static/images/downstream_rlbench.jpg" width="800" height="600" alt="Detailed Image ROCAUC" class="center-image blend-img-background"/>
+          <h2 class="subtitle has-text-centered">
+            Manipulation Success Rate of 18 tasks in RLBench.
+          </h2>
+        </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
 
 
 <!-- Paper Conclusion -->
@@ -289,17 +255,11 @@
         <h2 class="title is-3">Conclusion</h2>
         <div class="content has-text-justified">
           <p>
-            Efficiently end-to-end training on long videos under weak supervision is challenging. 
-            This work proposes a weakly supervised end-to-end training framework named AdaFocus, 
-            which adaptively focuses on actions and clips with cleaner supervision for model optimization. 
-            Experimental results on three datasets show that our AdaFocus can help weakly supervised models perform better than noisy supervised models, 
-            sometimes even fully supervised models. Moreover, with our AdaFocus framework, 
-            the long-video feature extraction pipeline is rebuilt, 
-            which significantly improves the performance of existing models on three long-video action understanding tasks, 
-            providing better foundations for the development of long-video action understanding.
-          </p>
-          <p style="color: #f35494">
-            THIS is a long-term maintenance project, and will support more long-video datasets and long-video action understanding tasks in the future.
+            The existing learning paradigm of visual pre-training on human data for robotic manipulation encounters the human-robot domain discrepancy. 
+            Our work takes a preliminary attempt to solve this challenging problem.
+            In this work, we contribute a new adaptation paradigm by leveraging existing semantic-aligned human-robot video data and proposing an efficient semantic alignment method. 
+            In this way, the existing human-data pre-trained models can be efficiently and explicitly adapted to the robot domain, without the need to be tailored for each downstream robotic environment.
+            Experiments on 25 robotic manipulation tasks across three environments and different pre-trained models demonstrate the efficacy of our proposed method.
           </p>
         </div>
       </div>
@@ -409,12 +369,8 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{zhou2023adafocus,
-        title={AdaFocus: Towards End-to-end Weakly Supervised Learning for Long-Video Action Understanding},
-        author={Zhou, Jiaming and Li, Hanjun and Lin, Kun-Yu and Liang, Junwei},
-        journal={arXiv preprint arXiv:2311.17118},
-        year={2023}
-      }</code></pre>
+      <pre><code>TBA
+      </code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
