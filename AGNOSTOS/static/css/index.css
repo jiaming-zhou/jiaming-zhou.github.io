@@ -1,0 +1,571 @@
+body {
+  font-family: 'Noto Serif SC', serif;
+  background-color: rgb(253, 250, 244); /* 更新背景颜色 */
+}
+
+/* 增加container的最大宽度 */
+.container.is-max-desktop {
+  max-width: 1280px !important; /* 默认是960px，我们增加到1280px */
+}
+
+.navbar,
+.navbar-menu,
+.navbar-dropdown {
+  background-color: rgb(253, 250, 244) !important;
+}
+
+.navbar-dropdown {
+  border-top-color: #ddd; /* Adjust dropdown border for beige background */
+}
+
+.navbar-link, .navbar-item {
+  font-family: 'Noto Serif SC', serif;
+  color: #363636 !important; /* Adjust color to fit beige background */
+}
+
+.navbar-item:hover, .navbar-link:hover,
+.navbar-item.is-active, .navbar-link.is-active {
+  background-color: #f5f1e9 !important; /* Slightly different beige for hover/active */
+  color: #000000 !important;
+}
+
+.footer {
+  background-color: rgb(253, 250, 244) !important;
+}
+
+.footer .content p {
+  font-family: 'Noto Serif SC', serif;
+  color: #363636 !important; /* Adjust color to fit beige background */
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+/* General background for all hero bodies */
+.hero-body {
+  background-color: rgb(253, 250, 244) !important;
+  /* Bulma's default padding for .hero-body is "3rem 1.5rem".
+     The rule below for .teaser .hero-body will override for that specific case. */
+}
+
+.teaser, .subtitle {
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* Specific padding for .teaser .hero-body */
+.teaser .hero-body {
+  padding-top: 0 !important;
+  padding-bottom: 3rem !important;
+  /* background-color is handled by the general .hero-body rule above */
+}
+
+.publication-title {
+  font-family: 'Roboto Mono', monospace !important;
+  margin: 0 auto; /* 水平居中 */
+  margin-bottom: 0.1em; /* 行间距 */
+  padding-bottom: 0.15em; /* 为下沉字母提供空间 */
+  max-width: 100%; /* 确保不超出容器宽度 */
+  letter-spacing: -0.05em; /* 减小字母间距，使文本更紧凑 */
+}
+
+/* 第二行标题样式 */
+.publication-title + .publication-title {
+  margin-top: 0; /* 减少与第一行的间距 */
+}
+
+/* 注：打字机效果的动画现在已移到 typing-effect.css 文件中 */
+
+/* Ensure the hero section containing the main title also has the beige background */
+.hero.is-light {
+  background-color: rgb(253, 250, 244) !important;
+}
+
+.publication-banner {
+  max-height: parent;
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-authors {
+  /* font-family: 'Roboto Mono', monospace; */
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+/* General heading styles */
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: 'Noto Serif SC Black', serif;
+}
+
+
+/* --- Add these styles to your index.css for the new video galleries --- */
+
+
+.custom-gallery-video-item {
+  height: 220px;  /* Fixed height for all videos, adjust as needed */
+  width: auto;    /* Width will adjust based on video's aspect ratio */
+  max-width: 400px; /* Optional: constrain max width for very wide videos */
+  flex: 0 0 auto; /* Prevent videos from shrinking or growing */
+  border-radius: 4px; /* Slightly rounded corners for videos */
+  object-fit: cover;   /* How video should fill its container, 'contain' is another option */
+  background-color: #000; /* Background for videos, visible if using 'contain' or for transparent parts */
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1); /* Subtle shadow from Bulma's card */
+}
+
+.custom-gallery-nav-controls {
+  text-align: center; /* Center the navigation buttons */
+  margin-bottom: 10px; /* Space before the gallery caption */
+}
+
+.gallery-nav-button {
+  margin: 0 5px; /* Space around navigation buttons */
+  /* You can use Bulma button classes directly like "button is-small is-outlined"
+     or define custom styles here if needed. For now, relying on Bulma's .button */
+}
+
+.custom-gallery-caption {
+  font-size: 0.9rem;
+  color: #555; /* Adjust color as needed */
+}
+
+/* Optional: if you want the section title to be more distinct */
+.custom-video-gallery-section .title.is-3 {
+  margin-bottom: 1.5rem;
+}
+
+/* 视频画廊样式 */
+/* 删除了冲突定义 */
+
+.custom-gallery-video-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-gallery-caption {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #485fc7;
+  border-radius: 3px;
+}
+
+/* 方法图片和任务图片样式 */
+.method-image, .tasks-image {
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* 黑色背景标题样式 */
+.section-title-dark {
+  text-align: left;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  display: inline-block;
+  width: auto;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: -0.02em; /* 稍微减小字母间距，使标题更紧凑 */
+}
+
+/* 版权声明样式 */
+.copyright-notice {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* 视频画廊样式 - 统一定义 */
+.custom-video-gallery-section {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.01), rgba(0,0,0,0) 50%, rgba(0,0,0,0.01));
+  margin-bottom: 2rem;
+}
+
+.custom-video-gallery-container {
+  width: 100%;
+  overflow: hidden; /* 隐藏滚动条和溢出内容 */
+  position: relative;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 15px;
+  /* 确保画廊容器高度一致性 */
+  min-height: 300px; /* 减小最小高度适应单行布局 */
+  height: auto; /* 允许高度自动调整但不低于最小值 */
+  display: flex; /* 使用flex布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  /* 隐藏滚动条 */
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+  /* 防止布局变化导致页面跳动 */
+  contain: layout paint style;
+  /* 避免页面滚动的抖动，创建层叠上下文 */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  /* 防止页面跳动的额外设置 */
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* 隐藏Chrome, Safari和Opera的滚动条 */
+.custom-video-gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-video-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 每行3个视频 */
+  grid-template-rows: repeat(1, auto); /* 改为1行 */
+  gap: 20px;
+  padding: 15px 5px;
+  width: 100%; /* 填充容器宽度 */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* 只对必要的属性添加过渡效果 */
+  min-height: 250px; /* 减小高度为原来的一半，适应单行布局 */
+  height: auto; /* 允许自动高度，但不低于最小高度 */
+  position: relative; /* 确保定位上下文正确 */
+  will-change: transform; /* 提示浏览器优化动画性能 */
+  contain: layout paint; /* 限制布局和绘制范围，提高性能 */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 宽高比 */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+  display: block; /* 确保显示为块级元素 */
+  max-width: 100%; /* 限制最大宽度 */
+  min-height: 50px; /* 确保有最小高度 */
+  align-self: center; /* 在flex容器中垂直居中 */
+}
+
+.video-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.custom-gallery-video-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保视频覆盖整个区域 */
+  border-radius: 8px;
+  display: block; /* 确保显示为块级元素 */
+}
+
+.video-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  transform: translateY(0); /* 默认不位移 */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1; /* 默认可见 */
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+/* 标题已默认显示，不再需要悬停效果 */
+/* 
+.video-wrapper:hover .video-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+*/
+
+/* 增强视频画廊背景 */
+.custom-video-gallery-section {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.01), rgba(0,0,0,0) 50%, rgba(0,0,0,0.01));
+}
+
+/* 改善视频画廊标题 */
+.custom-gallery-caption {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 15px;
+  font-style: italic;
+  text-align: center;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* 添加页面元素进入动画 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 翻页按钮样式 */
+.gallery-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+/* 禁用状态的翻页按钮样式 */
+.gallery-nav-button.disabled,
+.gallery-nav-button[disabled] {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none; /* 完全禁用交互 */
+}
+
+.gallery-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-nav-button:active {
+  transform: translateY(-50%) scale(0.95);
+  background-color: #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-nav-button.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.gallery-prev {
+  left: 10px;
+}
+
+.gallery-next {
+  right: 10px;
+}
+
+/* 调整视频画廊容器为相对定位，以便翻页按钮定位 */
+.custom-video-gallery-section .container {
+  position: relative;
+}
+
+/* 页码指示器样式 */
+.pagination-indicator {
+  text-align: center;
+  margin: 15px 0 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pagination-indicator .current-page {
+  font-weight: bold;
+  color: #000;
+}
+
+.pagination-indicator .total-pages {
+  color: #777;
+}
+
+/* 自动翻页进度条样式 */
+.auto-page-progress {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  margin: 5px 0 15px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, #485fc7, #3e8ed0);
+  border-radius: 2px;
+}
+
+/* 当页面只有单个视频时的特殊样式 */
+.custom-video-gallery.single-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-video-gallery.single-video .video-wrapper {
+  max-width: 65%; /* 限制视频最大宽度 */
+  margin: 0 auto; /* 居中显示 */
+}
+
+@media (max-width: 768px) {
+  .custom-video-gallery.single-video .video-wrapper {
+    max-width: 95%; /* 移动设备上调整宽度 */
+  }
+}
+

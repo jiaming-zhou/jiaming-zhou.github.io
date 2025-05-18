@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Exploring the Limits of Vision-Language-Action Manipulations in Cross-task Generalization.">
+  <meta name="keywords" content="Vision-Language-Action, Robotics, Generalization, AGNOSTOS, X-ICM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exploring the Limits of Vision-Language-Action Manipulations</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/typing-effect.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  </head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://jiaming-zhou.github.io/">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://jiaming-zhou.github.io/projects/HumanRobotAlign/">
+              Human Video based Manipulation
+            </a>
+            <a class="navbar-item" href="https://teleema.github.io/projects/GLOVER/">
+              Open-Vocabulary Grasping
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="./static/images/favicon.svg" alt="Project Logo" style="width: 120px; margin-bottom: 20px; filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.2));">
+          <h1 class="title is-1 publication-title">Exploring the Limits of Vision-Language-Action</h1>
+          <h1 class="title is-1 publication-title">Manipulations in Cross-task Generalization</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://jiaming-zhou.github.io/" target="_blank">Jiaming Zhou</a><sup>1</sup>,</span>
+            <span class="author-block">Ke Ye<sup>1</sup>,</span>
+            <span class="author-block">Jiayi Liu<sup>1</sup>,</span>
+            <span class="author-block">Teli Ma<sup>1</sup>,</span>
+            <span class="author-block">Zifan Wang<sup>1</sup>,</span>
+            <span class="author-block">Ronghe Qiu<sup>1</sup>,</span>
+            <span class="author-block">Kun-Yu Lin<sup>2</sup>,</span>
+            <span class="author-block">Zhilin Zhao<sup>3</sup>,</span>
+            <span class="author-block">Junwei Liang<sup>1,4</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>HKUST(GZ),</span>
+            <span class="author-block"><sup>2</sup>HKU,</span>
+            <span class="author-block"><sup>3</sup>SYSU,</span>
+            <span class="author-block"><sup>4</sup>HKUST</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="REPLACE_WITH_PDF_LINK.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="REPLACE_WITH_ARXIV_LINK" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="REPLACE_WITH_CODE_LINK" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/5MKlijK1gKI" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- <h2 class="title is-3">Video Presentation</h2> -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-quarters">
+          <div class="publication-video">
+            <iframe width="520" height="300" src="https://www.youtube.com/embed/5MKlijK1gKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="has-text-centered" style="max-width: 1000px; margin: 1rem auto;">
+            This work introduces AGNOSTOS, a cross-task generalization benchmark for robotic manipulation, and a novel Vision-Language-Action method that shows promising cross-task generalization capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The generalization capabilities of vision-language-action (VLA) models to unseen tasks are crucial to achieving general-purpose robotic manipulation in open-world settings. However, the cross-task generalization capabilities of existing VLA models remain significantly underexplored. To address this gap, we introduce AGNOSTOS, a novel simulation benchmark designed to rigorously evaluate cross-task zero-shot generalization in manipulation. AGNOSTOS comprises 23 unseen manipulation tasks for test-distinct from common training task distributions-and incorporates two levels of generalization difficulty to assess robustness. Our systematic evaluation reveals that current VLA models, despite being trained on diverse datasets, struggle to generalize effectively to these unseen tasks. To overcome this limitation, we propose Cross-Task In-Context Manipulation (X-ICM), a method that conditions large language models (LLMs) on in-context demonstrations from seen tasks to predict action sequences for unseen tasks. Additionally, we introduce a dynamics-guided sample selection strategy that identifies relevant demonstrations by capturing cross-task dynamics. On AGNOSTOS, X-ICM significantly improves cross-task zero-shot generalization performance over leading VLAs. We believe AGNOSTOS and X-ICM will serve as valuable tools for advancing general-purpose robotic manipulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">AGNOSTOS Benchmark</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <strong>AGNOSTOS</strong>, a simulation benchmark built in RLBench to rigorously evaluate zero-shot, cross-task generalization for robotic manipulation. It features 23 unseen test tasks, distinct from typical training distributions.<br>
+          <div class="container is-max-desktop" style="margin-top: -1rem;">
+            <div class="hero-body" style="padding: 1rem 0;">
+              <video id="teaser" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/agnostos_benchmark.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <strong>These tasks are categorized into two difficulty levels:</strong>
+            <ul>
+                <li><strong>Level-1:</strong> 13 unseen tasks, sharing partial semantics (e.g., similar objects like "cups" or motions like "put") with seen tasks</li>
+                <li><strong>Level-2:</strong> 10 unseen tasks, introducing entirely novel scenarios with no overlapping objects or actions.</li>
+            </ul>
+
+            <strong>We benchmark three broad categories of VLA models:</strong>
+          <ul>
+              <li><strong>Foundation VLAs:</strong> trained on large-scale real-world cross-embodiment robotic data or built upon LLM or VLM models, including OpenVLA, RDT, π0, LLARVA, SAM2Act, 3D-LOTUS++, and VoxPoser.</li>
+              <li><strong>Human-video VLAs:</strong> pre-trained on large-scale human action videos to capture rich human-object interactions for downstream robotic fine-tuning, including R3M, D4R, R3M-Align, and D4R-Align.</li>
+              <li><strong>In-domain VLAs:</strong> rained from scratch on RLBench's 18 seen tasks with task specific model architectures. These serve as strong baselines without domain mismatch, including PerAct, RVT, RVT2, Sigma-Agent, and Instant Policy.</li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section custom-video-gallery-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">AGNOSTOS Training Tasks</h2>
+        <button class="gallery-nav-button gallery-prev" data-gallery="training-gallery"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav-button gallery-next" data-gallery="training-gallery"><i class="fas fa-chevron-right"></i></button>
+        <div class="custom-video-gallery-container" id="training-gallery-container">
+      <div class="custom-video-gallery" id="training-gallery">
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/close_jar.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Close Jar</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/insert_onto_square_peg.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Insert Onto Square Peg</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/light_bulb_in.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Light Bulb In</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/meat_off_grill.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Meat Off Grill</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/open_drawer.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Open Drawer</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/place_cups.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Place Cups</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/place_shape_in_shape_sorter.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Place Shape In Sorter</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/place_wine_at_rack_location.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Place Wine At Rack</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/push_buttons.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Push Buttons</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/put_groceries_in_cupboard.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Groceries In Cupboard</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/put_item_in_drawer.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Item In Drawer</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/put_money_in_safe.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Money In Safe</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/reach_and_drag.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Reach And Drag</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/slide_block_to_color_target.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Slide Block To Color Target</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/stack_blocks.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Stack Blocks</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/stack_cups.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Stack Cups</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/sweep_to_dustpan_of_size.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Sweep To Dustpan</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/18tasks_rlbench_video/turn_tap.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Turn Tap</div>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="has-text-centered custom-gallery-caption">
+      Examples of training tasks used to teach VLA models foundational manipulation skills. These are distinct from AGNOSTOS evaluation tasks.
+    </p> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section custom-video-gallery-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">AGNOSTOS: Level-1, 13 Unseen Tasks</h2>
+        <button class="gallery-nav-button gallery-prev" data-gallery="level1-gallery"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav-button gallery-next" data-gallery="level1-gallery"><i class="fas fa-chevron-right"></i></button>
+        <div class="custom-video-gallery-container" id="level1-gallery-container">
+      <div class="custom-video-gallery" id="level1-gallery">
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/close_fridge.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Close Fridge</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/close_laptop_lid.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Close Laptop Lid</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/close_microwave.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Close Microwave</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/lamp_off.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Lamp Off</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/lamp_on.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Lamp On</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/open_grill.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Open Grill</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/phone_on_base.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Phone On Base</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/put_books_on_bookshelf.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Books On Bookshelf</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/put_knife_on_chopping_board.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Knife On Chopping Board</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/put_rubbish_in_bin.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Rubbish In Bin</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/put_toilet_roll_on_stand.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Toilet Roll On Stand</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/put_umbrella_in_umbrella_stand.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Put Umbrella In Umbrella Stand</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level1/toilet_seat_down.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Toilet Seat Down</div>
+        </div>
+      </div>
+    </div>
+    <p class="has-text-centered custom-gallery-caption">
+      shares partial semantics (e.g., similar objects like “cups” or motions like “put”) with seen tasks.
+    </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section custom-video-gallery-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">AGNOSTOS: Level-2, 10 Unseen Tasks</h2>
+        <button class="gallery-nav-button gallery-prev" data-gallery="level2-gallery"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav-button gallery-next" data-gallery="level2-gallery"><i class="fas fa-chevron-right"></i></button>
+        <div class="custom-video-gallery-container" id="level2-gallery-container">
+      <div class="custom-video-gallery" id="level2-gallery">
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/basketball_in_hoop.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Basketball In Hoop</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/beat_the_buzz.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Beat The Buzz</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/scoop_with_spatula.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Scoop With Spatula</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/straighten_rope.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Straighten Rope</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/take_lid_off_saucepan.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Take Lid Off Saucepan</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/take_plate_off_colored_dish_rack.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Take Plate Off Colored Dish Rack</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/take_usb_out_of_computer.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Take USB Out Of Computer</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/turn_oven_on.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Turn Oven On</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/unplug_charger.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Unplug Charger</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/23tasks_rlbench_video/level2/water_plants.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Water Plants</div>
+        </div>
+      </div>
+    </div>
+    <p class="has-text-centered custom-gallery-caption">
+      entirely novel scenarios with no overlapping objects or actions.
+    </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">X-ICM Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            To push the boundaries of cross-task zero-shot generalization in vision-language-action (VLA) models, we propose a method called <strong>Cross-task In-context Manipulation (X-ICM)</strong>.
+            Leveraging the cross-task generalization capabilities of LLMs, X-ICM utilizes demonstrations from seen tasks as in-context examples.
+            The dynamic characteristics of these examples are used to prompt the LLM to predict action sequences for unseen tasks.
+            A central challenge in this setting is that the selection of in-context demonstrations significantly affects generalization performance.
+            To address this, we design a <strong>dynamics-guided sample selection</strong> module that measures similarities between dynamic representations of seen and unseen tasks to guide the selection process, resulting in improved cross-task generalization.
+          </p>
+          <div class="has-text-centered">
+            <img src="./static/images/method_v2.3.png" alt="X-ICM Method Overview" class="method-image" width="850">
+            <p class="image-caption">Overview of the X-ICM framework. For an unseen task, dynamically relevant demonstrations from seen tasks are retrieved to prompt an LLM for action sequence prediction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">Benchmarking Results</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li><strong>X-ICM (7B) and X-ICM (72B) achieve average success rates of 23.5% and 30.1%, respectively, outperforming all existing VLA models.</strong></li>
+            <li><strong>All prior models completely fail on at least eight of the 23 tasks. In contrast, X-ICM (7B) fails on only two, and X-ICM (72B) succeeds on all.</strong></li>
+        </ul>
+            <div class="has-text-centered">
+            <img src="./static/images/results.png" alt="Benchmarking Results" class="method-image" width="850">
+            <!-- <p class="image-caption">Overview of the X-ICM framework. For an unseen task, dynamically relevant demonstrations from seen tasks are retrieved to prompt an LLM for action sequence prediction.</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section custom-video-gallery-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 section-title-dark">Real-world task testings</h2>
+        <button class="gallery-nav-button gallery-prev" data-gallery="real-world-gallery"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav-button gallery-next" data-gallery="real-world-gallery"><i class="fas fa-chevron-right"></i></button>
+        <div class="custom-video-gallery-container" id="real-world-gallery-container">
+      <div class="custom-video-gallery" id="real-world-gallery">
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_block3_into_bin_success_1.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Block Into Bin, Success 1</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_block3_into_bin_success_2.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Block Into Bin, Success 2</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_block3_into_bin_failure_2.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Block Into Bin, Failure 2</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_pill_bottle_into_box_success_1.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Pill Bottle Into Box, Success 1</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_pill_bottle_into_box_success_2.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Pill Bottle Into Box, Success 2</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/put_pill_bottle_into_box_failure_1.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Pill Bottle Into Box, Failure 1</div>
+        </div>
+        <div class="video-wrapper">
+          <video class="custom-gallery-video-item" src="./static/videos/real-world/stack_block5s_failure_1.mp4" autoplay muted loop playsinline></video>
+          <div class="video-title">Stack Blocks, Failure</div>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="has-text-centered custom-gallery-caption">
+      Demonstrations of the X-ICM method on a physical robot platform, showcasing successes and analyzing failure cases in real-world scenarios.
+    </p> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 section-title-dark">BibTeX</h2>
+        <div class="content bibtex-container" style="position: relative;">
+      <button id="copy-bibtex-btn" class="button is-small" 
+              style="position: absolute; top: 0; right: 0; z-index: 10; background-color: rgba(0, 0, 0, 0.6); color: white; border: none;">
+        <span class="icon">
+          <i class="fas fa-copy"></i>
+        </span>
+        <span>Copy</span>
+      </button>
+      <pre><code id="bibtex-content">@article{zhou2025exploring,
+  title     = {Exploring the Limits of Vision-Language-Action Manipulations in Cross-task Generalization},
+  author    = {Jiaming Zhou and Ke Ye and Jiayi Liu and Teli Ma and Zifan Wang and Ronghe Qiu and Kun-Yu Lin and Zhilin Zhao and Junwei Liang},
+  journal   = {arXiv preprint},
+  year      = {2025},
+  note      = {Replace with actual publication details when available}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="REPLACE_WITH_PDF_LINK.pdf" target="_blank">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="REPLACE_WITH_GITHUB_PROFILE_LINK" target="_blank" class="external-link"> <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p class="copyright-notice">© <a href="https://precognition.team" target="_blank">Precognition Lab</a> | Webpage designed by <a href="https://yipko.com" target="_blank">Ke Ye</a>.</p>
+          <p class="copyright-notice">Template based on <a href="https://nerfies.github.io" target="_blank">nerfies</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="./static/js/index.js"></script>
+<script src="./static/js/auto-scroll.js"></script>
+<script>
+// Video lazy loading script from original HTML
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        console.log('Initializing video lazy loading...');
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    if (video.dataset.src && !video.src) {
+                        video.src = video.dataset.src;
+                        video.load();
+                    }
+                    video.muted = true;
+                    if (video.paused) {
+                        const playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.warn('Autoplay restricted:', error);
+                            });
+                        }
+                    }
+                } else {
+                    if (!video.paused) {
+                        video.pause();
+                    }
+                }
+            });
+        }, { root: null, rootMargin: '100px', threshold: 0.1 });
+        
+        document.querySelectorAll('.custom-gallery-video-item').forEach(video => {
+            if (!video.dataset.src && video.src) { // If src is present but no data-src, create data-src
+                video.dataset.src = video.src;
+            }
+            if (video.dataset.src) { // Only modify if data-src exists
+                 // Check if it's not the teaser video before removing src
+                if (video.id !== 'teaser') {
+                    video.removeAttribute('src');
+                    video.preload = 'none';
+                }
+            }
+            videoObserver.observe(video);
+        });
+        
+        const teaserVideo = document.getElementById('teaser');
+        if (teaserVideo) {
+            // Ensure teaser video autoplays if it has a source
+            if (teaserVideo.src || teaserVideo.dataset.src) {
+                 if (!teaserVideo.src && teaserVideo.dataset.src) {
+                    teaserVideo.src = teaserVideo.dataset.src;
+                 }
+                 teaserVideo.load(); // Ensure it's loaded
+                 teaserVideo.play().catch(err => console.warn('Teaser video autoplay failed:', err));
+            }
+            // Teaser is usually observed by default if it's part of .custom-gallery-video-item or handled specially
+        }
+        console.log('Video lazy loading setup complete.');
+    }, 1500);
+});
+
+// BibTeX copy functionality from original HTML
+document.addEventListener('DOMContentLoaded', function() {
+  const copyButton = document.getElementById('copy-bibtex-btn');
+  const bibtexContent = document.getElementById('bibtex-content');
+  
+  if(copyButton && bibtexContent) {
+    copyButton.addEventListener('click', function() {
+      const textarea = document.createElement('textarea');
+      textarea.value = bibtexContent.textContent;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        copyButton.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+        copyButton.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        setTimeout(function() {
+          copyButton.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+          copyButton.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        }, 2000);
+      } catch (err) {
+        console.error('Copy failed:', err);
+        copyButton.innerHTML = '<span class="icon"><i class="fas fa-times"></i></span><span>Failed</span>';
+        copyButton.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        setTimeout(function() {
+          copyButton.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+          copyButton.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        }, 2000);
+      }
+      document.body.removeChild(textarea);
+    });
+  }
+});
+
+// Ensure navbar toggle works (from your original index.js)
+$(document).ready(function () {
+    $(".navbar-burger").click(function () {
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
+});
+</script>
+</body>
+</html>

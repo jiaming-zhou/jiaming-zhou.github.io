@@ -1,0 +1,62 @@
+/* 打字机效果的CSS专用文件 */
+
+/* 重置原有的.publication-title样式 */
+.publication-title {
+  font-family: 'Noto Serif SC Black', serif;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  display: block; /* 确保标题单独占一行 */
+  line-height: 1.5; /* 增加行高以显示下沉字母 */
+  padding-bottom: 0.2em; /* 为下沉字母提供额外空间 */
+  position: relative; /* 确保光标定位正确 */
+  border-right: 0.15em solid transparent; /* 为光标预留空间，初始设为透明 */
+}
+
+/* 第一个标题特定样式 */
+.publication-title:first-of-type {
+  animation: 
+    typing-first 2.5s steps(40, end) forwards,
+    caret-first 2.5s steps(1) forwards;
+}
+
+/* 第二个标题特定样式 */
+.publication-title:last-of-type {
+  animation: 
+    typing-second 2.5s steps(40, end) forwards,
+    caret-second 0.75s step-end infinite;
+  animation-delay: 3s, 3s; /* 等待第一个标题完成后开始 */
+  overflow-x: hidden; /* 防止水平滚动条 */
+  overflow-y: visible; /* 允许垂直内容溢出以显示全部字符 */
+}
+
+/* 第一个标题的打字动画 */
+@keyframes typing-first {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 第二个标题的打字动画 */
+@keyframes typing-second {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 第一个标题光标动画 - 只在打字过程中显示，结束后消失 */
+@keyframes caret-first {
+  0%, 99% { border-right-color: black; }
+  100% { border-right-color: transparent; }
+}
+
+/* 第二个标题光标闪烁动画 */
+@keyframes caret-second {
+  from, to { border-right-color: transparent; }
+  50% { border-right-color: black; }
+}
+
+/* 动画完成后的样式 */
+.publication-title.typing-done {
+  width: 100%;
+  border-right-color: transparent;
+}
