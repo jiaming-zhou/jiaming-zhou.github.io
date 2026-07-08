@@ -233,7 +233,7 @@ body::selection {
   color: rgba(0, 0, 0, 0.78);
   font-size: 1rem;
   line-height: 1.72;
-  margin: 0 0 1.35rem;
+  margin: 1.15rem 0 0;
 }
 
 .pipeline-frame {
