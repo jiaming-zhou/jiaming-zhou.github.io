@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="./static/css/index.css?v=20260824-2">
     <link rel="icon" type="image/webp" href="./static/images/robot-logo-robbyant.webp">
-    <script defer src="./static/js/index.js?v=20260824-3"></script>
+    <script defer src="./static/js/index.js?v=20260824-4"></script>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
             <div class="container is-max-widescreen">
                 <h2 class="section-heading">In-context Human Video Prompt.</h2>
                 <p class="section-description">
-                    Human demonstration videos provide such a visual interface by showing the intended interaction and its visual progression. Compared with language instructions, the examples below show how human video adds task visual dynamics in three representative scenarios: identifying the intended object instance, demonstrating how an unfamiliar object should be manipulated, and revealing the precise sequence of a long-horizon task. These complementary visual cues motivate scaling semantically aligned human-robot ICL pairs. Training on such pairs allows a single policy to learn from both language instructions and human video prompts, thereby improving its ability to generalize across manipulation tasks, including unseen tasks at deployment. When language is insufficient, a relevant human demonstration found on the internet or provided on site can serve as an in-context prompt, allowing the policy to execute the specified task without task-specific robot demonstrations or parameter updates.
+                    Human demonstration videos provide such a visual interface by showing the intended interaction and its visual progression. Compared with language instructions, the examples below illustrate three complementary forms of visual task specification: grounding the intended object instance, demonstrating the required interaction with an unfamiliar object, and specifying the temporal order of a long-horizon task. Training a single policy to follow both language instructions and human video prompts strengthens its ability to generalize across manipulation tasks. Achieving this capability requires scaling semantically aligned human-robot ICL pairs. When language is insufficient, a relevant human demonstration found on the internet or provided on site can serve as an in-context prompt, allowing the policy to execute the specified task without task-specific robot demonstrations or parameter updates.
                 </p>
 
                 <div class="icl-film" data-icl-film aria-label="Human video prompts in context">
@@ -111,10 +111,10 @@
                         <button class="icl-film-toggle" type="button" aria-label="Pause story" data-film-toggle>
                             <i class="fas fa-pause" aria-hidden="true"></i>
                         </button>
-                        <div class="icl-film-timeline" role="slider" tabindex="0" aria-label="Story progress" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0" data-film-timeline>
+                        <div class="icl-film-timeline" role="slider" tabindex="0" aria-label="Story progress" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0" data-film-timeline>
                             <div class="icl-film-timeline-fill" data-film-timeline-fill></div>
                         </div>
-                        <span class="icl-film-time" data-film-time>0:00 / 0:15</span>
+                        <span class="icl-film-time" data-film-time>0:00 / 0:24</span>
                         <button class="icl-film-replay" type="button" aria-label="Replay story" data-film-replay>
                             <i class="fas fa-redo-alt" aria-hidden="true"></i>
                         </button>

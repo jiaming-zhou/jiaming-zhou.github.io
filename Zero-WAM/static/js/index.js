@@ -254,19 +254,19 @@ const iclFilmStages = [
         copy: "Identify the intended instance among visually similar objects.",
     },
     {
-        start: 3250,
+        start: 6000,
         category: 1,
         title: "How should it be manipulated?",
         copy: "Show the interaction required by an unfamiliar object.",
     },
     {
-        start: 6500,
+        start: 12000,
         category: 2,
         title: "What sequence is required?",
         copy: "Specify the order of actions and the state changes that complete the task.",
     },
     {
-        start: 9750,
+        start: 18000,
         category: null,
         title: "Human-robot ICL gallery.",
         copy: "",
@@ -289,7 +289,7 @@ const setupIclFilm = () => {
     const timeline = film.querySelector("[data-film-timeline]");
     const timelineFill = film.querySelector("[data-film-timeline-fill]");
     const time = film.querySelector("[data-film-time]");
-    const duration = 15000;
+    const duration = 24000;
     let elapsed = 0;
     let activeStage = -1;
     let animationFrame = null;
@@ -412,7 +412,7 @@ const setupIclFilm = () => {
         const percent = (seconds / (duration / 1000)) * 100;
         timelineFill.style.width = `${percent}%`;
         timeline.setAttribute("aria-valuenow", seconds.toFixed(1));
-        time.textContent = `0:${String(Math.floor(seconds)).padStart(2, "0")} / 0:15`;
+        time.textContent = `0:${String(Math.floor(seconds)).padStart(2, "0")} / 0:24`;
     };
 
     const setStage = (index, animate = true) => {
