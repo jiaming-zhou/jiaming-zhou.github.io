@@ -435,18 +435,32 @@ const setupFrameworkFigureVideos = () => {
     let isVisible = false;
 
     videos.forEach((video) => {
-        video.addEventListener("loadeddata", () => video.classList.add("is-ready"), { once: true });
-
-        const offset = Number(video.dataset.offset || 0);
-        if (!offset) {
-            return;
+        const revealVideo = () => video.classList.add("is-ready");
+        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            revealVideo();
+        } else {
+            video.addEventListener("loadeddata", revealVideo, { once: true });
         }
 
-        video.addEventListener("loadedmetadata", () => {
-            if (Number.isFinite(video.duration) && video.duration > 0) {
+        const offset = Number(video.dataset.offset || 0);
+        const configurePlayback = () => {
+            if (offset && Number.isFinite(video.duration) && video.duration > 0) {
                 video.currentTime = Math.min(offset, Math.max(video.duration - 0.1, 0));
             }
-        }, { once: true });
+
+            const fitDuration = Number(video.dataset.fitDuration || 0);
+            if (fitDuration && Number.isFinite(video.duration) && video.duration > fitDuration) {
+                const playbackRate = video.duration / fitDuration;
+                video.defaultPlaybackRate = playbackRate;
+                video.playbackRate = playbackRate;
+            }
+        };
+
+        if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+            configurePlayback();
+        } else {
+            video.addEventListener("loadedmetadata", configurePlayback, { once: true });
+        }
     });
 
     const setPlayback = (shouldPlay) => {
