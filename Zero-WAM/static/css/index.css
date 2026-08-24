@@ -410,16 +410,7 @@ button:focus-visible,
 }
 
 .icl-film-chapter::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: var(--zero);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
 }
 
 .icl-film-chapter:hover {
@@ -431,10 +422,6 @@ button:focus-visible,
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
-}
-
-.icl-film-chapter.is-active::after {
-  transform: scaleX(1);
 }
 
 .icl-film-heading {
@@ -729,7 +716,7 @@ button:focus-visible,
 .icl-film-timeline-fill {
   width: 0;
   height: 100%;
-  background: var(--zero);
+  background: var(--ink);
 }
 
 .icl-film-time {
@@ -1382,8 +1369,8 @@ button:focus-visible,
 }
 
 .pipeline-node.is-active {
-  border-color: rgba(93, 138, 94, 0.76);
-  box-shadow: 0 8px 20px rgba(63, 102, 65, 0.13), inset 0 0 0 1px rgba(93, 138, 94, 0.18);
+  border-color: rgba(24, 24, 24, 0.72);
+  box-shadow: 0 8px 20px rgba(24, 24, 24, 0.1), inset 0 0 0 1px rgba(24, 24, 24, 0.14);
   transform: translateY(-2px);
 }
 
@@ -1700,8 +1687,8 @@ button:focus-visible,
 }
 
 .pipeline-link.is-active {
-  --flow-color: rgba(76, 125, 77, 0.9);
-  color: rgba(57, 101, 59, 0.94);
+  --flow-color: rgba(24, 24, 24, 0.88);
+  color: var(--ink);
 }
 
 .pipeline-link > span {
