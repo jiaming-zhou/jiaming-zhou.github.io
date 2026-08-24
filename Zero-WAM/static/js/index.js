@@ -273,6 +273,24 @@ const setupRobotwinVideoControls = () => {
     });
 };
 
+const warmedVideoSources = new Map();
+
+const warmVideoSource = (source) => {
+    const encodedSource = encodeURI(source);
+    if (warmedVideoSources.has(encodedSource)) {
+        return warmedVideoSources.get(encodedSource);
+    }
+
+    const video = document.createElement("video");
+    video.preload = "auto";
+    video.muted = true;
+    video.playsInline = true;
+    video.src = encodedSource;
+    video.load();
+    warmedVideoSources.set(encodedSource, video);
+    return video;
+};
+
 const renderDemo = (block) => {
     const tasks = demoGroups[block.dataset.demo];
     const taskStrip = block.querySelector(".task-strip");
@@ -290,6 +308,20 @@ const renderDemo = (block) => {
     if (!tasks) {
         return;
     }
+
+    const warmTask = (index) => {
+        const task = tasks[(index + tasks.length) % tasks.length];
+        warmVideoSource(task.human);
+        warmVideoSource(task.robot);
+    };
+
+    const warmInactiveTasks = () => {
+        tasks.forEach((_, index) => {
+            if (index !== activeIndex) {
+                warmTask(index);
+            }
+        });
+    };
 
     const setActive = (index, options = {}) => {
         activeIndex = (index + tasks.length) % tasks.length;
@@ -353,6 +385,9 @@ const renderDemo = (block) => {
         } else {
             button.textContent = task.label;
         }
+        button.addEventListener("pointerenter", () => warmTask(index), { once: true });
+        button.addEventListener("focus", () => warmTask(index), { once: true });
+        button.addEventListener("pointerdown", () => warmTask(index), { once: true });
         button.addEventListener("click", () => setActive(index));
         button.addEventListener("keydown", (event) => {
             if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
@@ -371,6 +406,24 @@ const renderDemo = (block) => {
     [humanVideo, robotVideo].forEach(bindVideoProgress);
 
     setActive(0, { scroll: false });
+
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!connection?.saveData) {
+        const observer = new IntersectionObserver((entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) {
+                return;
+            }
+
+            observer.disconnect();
+            if ("requestIdleCallback" in window) {
+                window.requestIdleCallback(warmInactiveTasks, { timeout: 1000 });
+            } else {
+                window.setTimeout(warmInactiveTasks, 0);
+            }
+        }, { rootMargin: "1000px 0px", threshold: 0 });
+
+        observer.observe(block);
+    }
 };
 
 const setupDataCompositionVideos = () => {
