@@ -77,42 +77,47 @@
             <div class="container is-max-widescreen">
                 <h2 class="section-heading">In-context Human Video Prompt.</h2>
                 <p class="section-description">
-                    Human demonstration videos provide such a visual interface by showing the intended interaction and its visual progression. In the multi-object examples below, individual object instances can be difficult to identify unambiguously in language. Scaling semantically aligned human-robot ICL pairs therefore makes it possible to train a single policy with both language and human video as conditioning signals. At deployment, when language is insufficient, a relevant human demonstration found on the internet or provided on site can serve as an in-context prompt, allowing the policy to execute the specified task without task-specific robot demonstrations or parameter updates.
+                    Human demonstration videos provide such a visual interface by showing the intended interaction and its visual progression. Compared with language instructions, the examples below show how human video adds task visual dynamics in three representative scenarios: identifying the intended object instance, demonstrating how an unfamiliar object should be manipulated, and revealing the precise sequence of a long-horizon task. These complementary visual cues motivate scaling semantically aligned human-robot ICL pairs. Training on such pairs allows a single policy to learn from both language instructions and human video prompts, thereby improving its ability to generalize across manipulation tasks, including unseen tasks at deployment. When language is insufficient, a relevant human demonstration found on the internet or provided on site can serve as an in-context prompt, allowing the policy to execute the specified task without task-specific robot demonstrations or parameter updates.
                 </p>
 
-                <div class="demo-block" data-demo="pnp">
-                    <div class="demo-header">
-                        <div class="task-controls" aria-label="Multi-object pick-and-place task selector">
-                            <button class="task-scroll task-scroll-left" type="button" aria-label="Previous task"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                            <div class="task-strip" role="tablist"></div>
-                            <button class="task-scroll task-scroll-right" type="button" aria-label="Next task"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <div class="icl-film" data-icl-film aria-label="Human video prompts in context">
+                    <div class="icl-film-chapters" role="tablist" aria-label="Human video prompt story">
+                        <button class="icl-film-chapter is-active" type="button" role="tab" aria-selected="true" data-film-stage="0">
+                            <span>Object reference</span>
+                        </button>
+                        <button class="icl-film-chapter" type="button" role="tab" aria-selected="false" data-film-stage="1">
+                            <span>Interaction procedure</span>
+                        </button>
+                        <button class="icl-film-chapter" type="button" role="tab" aria-selected="false" data-film-stage="2">
+                            <span>Long-horizon sequence</span>
+                        </button>
+                    </div>
+
+                    <div class="icl-film-heading" aria-live="polite">
+                        <h3 data-film-title>Which object?</h3>
+                        <p data-film-copy>Identify the intended instance among visually similar objects.</p>
+                    </div>
+
+                    <div class="icl-film-stage" data-film-canvas>
+                        <div class="icl-film-gallery" data-film-gallery></div>
+                        <div class="icl-gallery-stats" aria-label="HumanGen dataset scale">
+                            <div class="icl-gallery-stat"><strong>&gt; 10</strong><span>Dataset Sources</span></div>
+                            <div class="icl-gallery-stat"><strong>&gt; 6k</strong><span>Robotic Tasks</span></div>
+                            <div class="icl-gallery-stat"><strong>&gt; 70k</strong><span>Human-robot Pairs</span></div>
                         </div>
                     </div>
-                    <div class="video-pair" aria-live="polite">
-                        <figure class="video-card">
-                            <figcaption>Human Demonstration</figcaption>
-                            <div class="video-shell">
-                                <video class="demo-video human-video" autoplay muted loop playsinline preload="metadata"></video>
-                                <div class="video-controls">
-                                    <button class="video-play-toggle is-playing" type="button" aria-label="Pause video"></button>
-                                    <span class="video-time video-time-current">0:00</span>
-                                    <div class="video-progress" role="slider" tabindex="0" aria-label="Human demonstration progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
-                                    <span class="video-time video-time-duration">0:00</span>
-                                </div>
-                            </div>
-                        </figure>
-                        <figure class="video-card">
-                            <figcaption>Robot Rollout</figcaption>
-                            <div class="video-shell">
-                                <video class="demo-video robot-video" autoplay muted loop playsinline preload="metadata"></video>
-                                <div class="video-controls">
-                                    <button class="video-play-toggle is-playing" type="button" aria-label="Pause video"></button>
-                                    <span class="video-time video-time-current">0:00</span>
-                                    <div class="video-progress" role="slider" tabindex="0" aria-label="Robot rollout progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
-                                    <span class="video-time video-time-duration">0:00</span>
-                                </div>
-                            </div>
-                        </figure>
+
+                    <div class="icl-film-controls">
+                        <button class="icl-film-toggle" type="button" aria-label="Pause story" data-film-toggle>
+                            <i class="fas fa-pause" aria-hidden="true"></i>
+                        </button>
+                        <div class="icl-film-timeline" role="slider" tabindex="0" aria-label="Story progress" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0" data-film-timeline>
+                            <div class="icl-film-timeline-fill" data-film-timeline-fill></div>
+                        </div>
+                        <span class="icl-film-time" data-film-time>0:00 / 0:15</span>
+                        <button class="icl-film-replay" type="button" aria-label="Replay story" data-film-replay>
+                            <i class="fas fa-redo-alt" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -317,11 +322,6 @@
                         </article>
                     </div>
                 </div>
-                <div class="pipeline-stats" aria-label="HumanGen dataset scale">
-                    <div class="pipeline-stat"><strong>&gt; 10</strong><span>Dataset Sources</span></div>
-                    <div class="pipeline-stat"><strong>&gt; 6k</strong><span>Robotic Tasks</span></div>
-                    <div class="pipeline-stat"><strong>&gt; 70k</strong><span>Human-robot Pairs</span></div>
-                </div>
             </div>
         </section>
 
@@ -484,13 +484,13 @@
                             </div>
                         </figure>
                         <figure class="video-card">
-                            <figcaption>Robot Rollout</figcaption>
+                            <figcaption>Robot Video</figcaption>
                             <div class="video-shell">
                                 <video class="demo-video robot-video" src="./static/videos/sequential_manipulation_480/seq-01-robot.mp4" autoplay muted loop playsinline preload="metadata"></video>
                                 <div class="video-controls">
                                     <button class="video-play-toggle is-playing" type="button" aria-label="Pause video"></button>
                                     <span class="video-time video-time-current">0:00</span>
-                                    <div class="video-progress" role="slider" tabindex="0" aria-label="Robot rollout progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
+                                    <div class="video-progress" role="slider" tabindex="0" aria-label="Robot video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
                                     <span class="video-time video-time-duration">0:00</span>
                                 </div>
                             </div>
@@ -526,14 +526,14 @@
                                     </div>
                                 </figure>
                                 <figure class="video-card insertion-robot-card">
-                                    <figcaption>Robot Rollout</figcaption>
+                                    <figcaption>Robot Video</figcaption>
                                     <div class="video-shell">
                                         <video class="demo-video robot-video" src="./static/videos/fine_grained_insertion_480/insert-03-robot-2x.mp4?v=20260823-2x" autoplay muted loop playsinline preload="metadata"></video>
                                         <span class="video-speed-badge" data-video-speed aria-label="Two times speed">Speed ×2</span>
                                         <div class="video-controls">
                                             <button class="video-play-toggle is-playing" type="button" aria-label="Pause video"></button>
                                             <span class="video-time video-time-current">0:00</span>
-                                            <div class="video-progress" role="slider" tabindex="0" aria-label="Robot rollout progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
+                                            <div class="video-progress" role="slider" tabindex="0" aria-label="Robot video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
                                             <span class="video-time video-time-duration">0:00</span>
                                         </div>
                                     </div>

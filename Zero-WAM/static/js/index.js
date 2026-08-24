@@ -41,7 +41,6 @@ const setupTableOfContents = () => {
     sections.forEach((section) => observer.observe(section));
 };
 
-const pickAndPlacePath = "./static/videos/pick_multiple_0708_ICL_demo_final_compressed_480/";
 const sequentialPath = "./static/videos/sequential_manipulation_480/";
 const insertionPath = "./static/videos/fine_grained_insertion_480/";
 
@@ -57,33 +56,6 @@ const pairedTask = (label, human, robot, options = {}) => ({
 });
 
 const demoGroups = {
-    pnp: [
-        pairedTask(
-            "White paper cup to silver plate",
-            `${pickAndPlacePath}5-ood-put the white paper cup into silver plate-human.MP4`,
-            `${pickAndPlacePath}5-ood-put the white paper cup into silver plate.MP4`
-        ),
-        pairedTask(
-            "Silver coffee cup to white plate",
-            `${pickAndPlacePath}6-ood-put the silver coffee up into white plate-human.MP4`,
-            `${pickAndPlacePath}6-ood-put the silver coffee up into white plate.MP4`
-        ),
-        pairedTask(
-            "Calabash to brown-green plate",
-            `${pickAndPlacePath}7-ood-put the calabash into the brown-green plate-human.MP4`,
-            `${pickAndPlacePath}7-ood-put the calabash into the brown-green plate.MP4`
-        ),
-        pairedTask(
-            "Left green pear to white plate",
-            `${pickAndPlacePath}8-ood-put the green pear in the left into the white plate-human.MP4`,
-            `${pickAndPlacePath}8-ood-put the green pear in the left into the white plate.MP4`
-        ),
-        pairedTask(
-            "Left green pear to brown-green plate",
-            `${pickAndPlacePath}9-ood-put the green pear in the left into the brown-green plate-human.MP4`,
-            `${pickAndPlacePath}9-ood-put the green pear in the left into the brown-green plate.MP4`
-        ),
-    ],
     sequential: [
         pairedTask("Silver coffee cup, sponge, and gourd", `${sequentialPath}seq-01-human.mp4`, `${sequentialPath}seq-01-robot.mp4`, {
             description: "Place the silver coffee cup in the wooden basket. Place the sponge in the white tray. Place the gourd on the pink oval plate.",
@@ -114,6 +86,524 @@ const demoGroups = {
             thumbnail: "./static/images/insertion/red-column.webp",
         }),
     ],
+};
+
+const iclFilmPath = "./static/videos/human_video_prompt_gallery/";
+const iclFilmTasks = [
+    {
+        label: "Which package contains the spicy peanuts?",
+        category: 0,
+        human: `${iclFilmPath}agibot-peanuts-human.mp4`,
+        robot: `${iclFilmPath}agibot-peanuts-robot.mp4`,
+    },
+    {
+        label: "Which items are the children's tableware?",
+        category: 0,
+        human: `${iclFilmPath}agibot-tableware-human.mp4`,
+        robot: `${iclFilmPath}agibot-tableware-robot.mp4`,
+    },
+    {
+        label: "Which bottle contains the coffee?",
+        category: 0,
+        human: `${iclFilmPath}agibot-coffee-human.mp4`,
+        robot: `${iclFilmPath}agibot-coffee-robot.mp4`,
+        speed: "1.5×",
+    },
+    {
+        label: "How to zip up the coat?",
+        category: 1,
+        human: `${iclFilmPath}oxe-coat-human.mp4`,
+        robot: `${iclFilmPath}oxe-coat-robot.mp4`,
+        speed: "2×",
+    },
+    {
+        label: "How to turn on the blue table lamp?",
+        category: 1,
+        human: `${iclFilmPath}robomind-lamp-human.mp4`,
+        robot: `${iclFilmPath}robomind-lamp-robot.mp4`,
+    },
+    {
+        label: "Place fries in a microwave and turn it on...",
+        category: 2,
+        human: `${iclFilmPath}robocoin-microwave-human.mp4`,
+        robot: `${iclFilmPath}robocoin-microwave-robot.mp4`,
+        speed: "6×",
+    },
+    {
+        label: "Sort a cluttered desk...",
+        category: 2,
+        human: `${iclFilmPath}galaxea-desk-human.mp4`,
+        robot: `${iclFilmPath}galaxea-desk-robot.mp4`,
+        speed: "4×",
+    },
+    {
+        label: "Which object is the leaf?",
+        category: 0,
+        human: `${iclFilmPath}galaxea-pick-human.mp4`,
+        robot: `${iclFilmPath}galaxea-pick-robot.mp4`,
+        speed: "3×",
+    },
+    {
+        label: "How to place the block into the fixture?",
+        category: 1,
+        human: `${iclFilmPath}openloong-block-human.mp4`,
+        robot: `${iclFilmPath}openloong-block-robot.mp4`,
+        speed: "6×",
+    },
+    {
+        label: "How to operate the oven door?",
+        category: 1,
+        human: `${iclFilmPath}robomind-oven-human.mp4`,
+        robot: `${iclFilmPath}robomind-oven-robot.mp4`,
+        speed: "4×",
+    },
+    {
+        label: "Operate a smart toilet",
+        category: 3,
+        human: `${iclFilmPath}ruierman-toilet-human.mp4`,
+        robot: `${iclFilmPath}ruierman-toilet-robot.mp4`,
+        speed: "14×",
+    },
+    {
+        label: "Weigh apples at checkout...",
+        category: 2,
+        human: `${iclFilmPath}ruierman-scale-human.mp4`,
+        robot: `${iclFilmPath}ruierman-scale-robot.mp4`,
+        speed: "5×",
+    },
+    {
+        label: "Arrange files on desk...",
+        category: 2,
+        human: `${iclFilmPath}shv2-instruction-human.mp4`,
+        robot: `${iclFilmPath}shv2-instruction-robot.mp4`,
+        speed: "16×",
+    },
+    {
+        label: "Pour from a teapot",
+        category: 3,
+        human: `${iclFilmPath}gallery-agibot-pour-human.mp4`,
+        robot: `${iclFilmPath}gallery-agibot-pour-robot.mp4`,
+    },
+    {
+        label: "Insert a marker",
+        category: 3,
+        human: `${iclFilmPath}gallery-agibot-marker-human.mp4`,
+        robot: `${iclFilmPath}gallery-agibot-marker-robot.mp4`,
+    },
+    {
+        label: "Make a sandwich",
+        category: 3,
+        human: `${iclFilmPath}gallery-interna1-sandwich-human.mp4`,
+        robot: `${iclFilmPath}gallery-interna1-sandwich-robot.mp4`,
+    },
+    {
+        label: "Fold short pants",
+        category: 3,
+        human: `${iclFilmPath}gallery-interna1-pants-human.mp4`,
+        robot: `${iclFilmPath}gallery-interna1-pants-robot.mp4`,
+    },
+    {
+        label: "Prepare a place setting",
+        category: 3,
+        human: `${iclFilmPath}gallery-galaxea-chef-human.mp4`,
+        robot: `${iclFilmPath}gallery-galaxea-chef-robot.mp4`,
+    },
+    {
+        label: "Rinse and place a plate",
+        category: 3,
+        human: `${iclFilmPath}gallery-oxe-rinse-human.mp4`,
+        robot: `${iclFilmPath}gallery-oxe-rinse-robot.mp4`,
+    },
+    {
+        label: "Manipulate a laptop",
+        category: 3,
+        human: `${iclFilmPath}gallery-robocoin-computer-human.mp4`,
+        robot: `${iclFilmPath}gallery-robocoin-computer-robot.mp4`,
+    },
+    {
+        label: "Pick up an umbrella",
+        category: 3,
+        human: `${iclFilmPath}gallery-robocoin-umbrella-human.mp4`,
+        robot: `${iclFilmPath}gallery-robocoin-umbrella-robot.mp4`,
+    },
+    {
+        label: "Cover a pot",
+        category: 3,
+        human: `${iclFilmPath}gallery-robomind-lid-human.mp4`,
+        robot: `${iclFilmPath}gallery-robomind-lid-robot.mp4`,
+    },
+    {
+        label: "Open a laptop",
+        category: 3,
+        human: `${iclFilmPath}gallery-robotwin-laptop-human.mp4`,
+        robot: `${iclFilmPath}gallery-robotwin-laptop-robot.mp4`,
+    },
+    {
+        label: "Operate a workstation",
+        category: 3,
+        human: `${iclFilmPath}gallery-ruierman-workstation-human.mp4`,
+        robot: `${iclFilmPath}gallery-ruierman-workstation-robot.mp4`,
+    },
+];
+
+const iclFilmStages = [
+    {
+        start: 0,
+        category: 0,
+        title: "Which object?",
+        copy: "Identify the intended instance among visually similar objects.",
+    },
+    {
+        start: 3250,
+        category: 1,
+        title: "How should it be manipulated?",
+        copy: "Show the interaction required by an unfamiliar object.",
+    },
+    {
+        start: 6500,
+        category: 2,
+        title: "What sequence is required?",
+        copy: "Specify the order of actions and the state changes that complete the task.",
+    },
+    {
+        start: 9750,
+        category: null,
+        title: "Human-robot ICL gallery.",
+        copy: "",
+    },
+];
+
+const setupIclFilm = () => {
+    const film = document.querySelector("[data-icl-film]");
+    if (!film) {
+        return;
+    }
+
+    const gallery = film.querySelector("[data-film-gallery]");
+    const chapterButtons = [...film.querySelectorAll("[data-film-stage]")];
+    const title = film.querySelector("[data-film-title]");
+    const copy = film.querySelector("[data-film-copy]");
+    const toggle = film.querySelector("[data-film-toggle]");
+    const toggleIcon = toggle.querySelector("i");
+    const replay = film.querySelector("[data-film-replay]");
+    const timeline = film.querySelector("[data-film-timeline]");
+    const timelineFill = film.querySelector("[data-film-timeline-fill]");
+    const time = film.querySelector("[data-film-time]");
+    const duration = 15000;
+    let elapsed = 0;
+    let activeStage = -1;
+    let animationFrame = null;
+    let previousTimestamp = null;
+    let isPlaying = false;
+    let isVisible = false;
+    let hasStarted = false;
+    const categoryCounts = new Map();
+
+    const makeVideo = (source, accessibleLabel, roleLabel, preload = "metadata") => {
+        const wrapper = document.createElement("div");
+        const video = document.createElement("video");
+        const role = document.createElement("span");
+
+        wrapper.className = "icl-pair-media";
+        video.src = encodeURI(source);
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = preload;
+        video.defaultPlaybackRate = 1;
+        video.playbackRate = 1;
+        video.addEventListener("loadedmetadata", () => {
+            video.playbackRate = 1;
+        });
+        video.setAttribute("aria-label", accessibleLabel);
+        video.addEventListener("loadeddata", () => video.classList.add("is-ready"), { once: true });
+        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            video.classList.add("is-ready");
+        }
+        role.className = "icl-pair-role";
+        role.textContent = roleLabel;
+        wrapper.append(video, role);
+        return wrapper;
+    };
+
+    const cards = iclFilmTasks.map((task, index) => {
+        const card = document.createElement("article");
+        const media = document.createElement("div");
+        const heading = document.createElement("h4");
+        const speed = document.createElement("span");
+
+        card.className = "icl-pair-card";
+        card.dataset.taskIndex = String(index);
+        card.dataset.category = String(task.category);
+        const categoryOrder = categoryCounts.get(task.category) || 0;
+        categoryCounts.set(task.category, categoryOrder + 1);
+        card.dataset.categoryOrder = String(categoryOrder);
+        card.style.setProperty("--gallery-delay", `${Math.min(index, 18) * 21}ms`);
+        media.className = "icl-pair-videos";
+        heading.textContent = task.label;
+        media.append(
+            makeVideo(task.human, `${task.label}: Human demonstration`, "Human demonstration", task.category < 3 ? "auto" : "metadata"),
+            makeVideo(task.robot, `${task.label}: Robot video`, "Robot Video", task.category < 3 ? "auto" : "metadata")
+        );
+        card.append(media, heading);
+
+        if (task.speed) {
+            speed.className = "icl-pair-speed";
+            speed.textContent = `Robot ${task.speed}`;
+            card.append(speed);
+        }
+
+        gallery.append(card);
+        return card;
+    });
+
+    const videos = [...gallery.querySelectorAll("video")];
+    let galleryPreloaded = false;
+
+    const preloadGalleryVideos = () => {
+        if (galleryPreloaded) {
+            return;
+        }
+        galleryPreloaded = true;
+        cards
+            .filter((card) => Number(card.dataset.category) >= 3)
+            .flatMap((card) => [...card.querySelectorAll("video")])
+            .forEach((video) => {
+                video.preload = "auto";
+                video.load();
+            });
+    };
+
+    const stageFromElapsed = () => {
+        for (let index = iclFilmStages.length - 1; index >= 0; index -= 1) {
+            if (elapsed >= iclFilmStages[index].start) {
+                return index;
+            }
+        }
+        return 0;
+    };
+
+    const syncVideoPlayback = () => {
+        const stage = iclFilmStages[activeStage];
+        videos.forEach((video) => {
+            const card = video.closest(".icl-pair-card");
+            const category = Number(card.dataset.category);
+            const isVisibleTask = stage.category === null || category === stage.category;
+            const shouldPlay = isVisible && isVisibleTask && (isPlaying || elapsed >= duration);
+            video.playbackRate = stage.category === 2 && category === 2 && Number.isFinite(video.duration)
+                ? Math.max(1, video.duration / 3.05)
+                : 1;
+            if (shouldPlay) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    };
+
+    const updateToggle = () => {
+        const atEnd = elapsed >= duration;
+        toggleIcon.className = `fas ${isPlaying ? "fa-pause" : atEnd ? "fa-redo-alt" : "fa-play"}`;
+        toggle.setAttribute("aria-label", isPlaying ? "Pause story" : atEnd ? "Replay story" : "Play story");
+    };
+
+    const updateProgress = () => {
+        const seconds = Math.min(duration, Math.max(0, elapsed)) / 1000;
+        const percent = (seconds / (duration / 1000)) * 100;
+        timelineFill.style.width = `${percent}%`;
+        timeline.setAttribute("aria-valuenow", seconds.toFixed(1));
+        time.textContent = `0:${String(Math.floor(seconds)).padStart(2, "0")} / 0:15`;
+    };
+
+    const setStage = (index, animate = true) => {
+        if (index === activeStage) {
+            return;
+        }
+
+        const previousCards = cards.filter((card) => card.classList.contains("is-active"));
+        const previousRects = new Map(previousCards.map((card) => [card, card.getBoundingClientRect()]));
+        activeStage = index;
+        const stage = iclFilmStages[index];
+        const isGallery = stage.category === null;
+
+        if (index >= 1) {
+            preloadGalleryVideos();
+        }
+
+        film.classList.toggle("is-gallery", isGallery);
+        film.dataset.stage = String(index);
+        cards.forEach((card, cardIndex) => {
+            card.classList.toggle("is-active", !isGallery && Number(card.dataset.category) === stage.category);
+        });
+        if (!isGallery) {
+            cards
+                .filter((card) => card.classList.contains("is-active"))
+                .flatMap((card) => [...card.querySelectorAll("video")])
+                .forEach((video) => {
+                    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+                        video.currentTime = 0;
+                    } else {
+                        video.addEventListener("loadedmetadata", () => {
+                            video.currentTime = 0;
+                        }, { once: true });
+                    }
+                });
+        }
+        chapterButtons.forEach((button, buttonIndex) => {
+            const isActive = buttonIndex === index;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-selected", String(isActive));
+        });
+        title.textContent = stage.title;
+        copy.textContent = stage.copy;
+
+        if (animate && !prefersReducedMotion && isGallery && previousCards.length) {
+            previousCards.forEach((card, order) => {
+                const previousRect = previousRects.get(card);
+                const nextRect = card.getBoundingClientRect();
+                const translateX = previousRect.left - nextRect.left;
+                const translateY = previousRect.top - nextRect.top;
+                const scaleX = previousRect.width / nextRect.width;
+                const scaleY = previousRect.height / nextRect.height;
+                card.classList.add("is-transition-source");
+                const transition = card.animate(
+                    [
+                        { transformOrigin: "top left", transform: `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})` },
+                        { transformOrigin: "top left", transform: "none" },
+                    ],
+                    { duration: 450 + order * 35, easing: "cubic-bezier(0.16, 1, 0.3, 1)" }
+                );
+                transition.finished.finally(() => card.classList.remove("is-transition-source"));
+            });
+        }
+
+        syncVideoPlayback();
+    };
+
+    const stop = () => {
+        isPlaying = false;
+        previousTimestamp = null;
+        if (animationFrame) {
+            window.cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        }
+        updateToggle();
+        syncVideoPlayback();
+    };
+
+    const tick = (timestamp) => {
+        if (!isPlaying) {
+            return;
+        }
+        if (previousTimestamp !== null) {
+            elapsed = Math.min(duration, elapsed + (timestamp - previousTimestamp));
+        }
+        previousTimestamp = timestamp;
+        setStage(stageFromElapsed());
+        updateProgress();
+
+        if (elapsed >= duration) {
+            stop();
+            return;
+        }
+        animationFrame = window.requestAnimationFrame(tick);
+    };
+
+    const start = (restart = false) => {
+        if (prefersReducedMotion || !isVisible || document.hidden) {
+            return;
+        }
+        if (restart || elapsed >= duration) {
+            elapsed = 0;
+            setStage(0, false);
+            updateProgress();
+        }
+        if (isPlaying) {
+            return;
+        }
+        isPlaying = true;
+        previousTimestamp = null;
+        updateToggle();
+        syncVideoPlayback();
+        animationFrame = window.requestAnimationFrame(tick);
+    };
+
+    const seekTo = (nextElapsed, shouldResume = isPlaying) => {
+        elapsed = Math.min(duration, Math.max(0, nextElapsed));
+        setStage(stageFromElapsed());
+        updateProgress();
+        if (shouldResume && elapsed < duration) {
+            start();
+        } else {
+            stop();
+        }
+    };
+
+    chapterButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            isVisible = true;
+            seekTo(iclFilmStages[index].start, true);
+        });
+    });
+
+    toggle.addEventListener("click", () => {
+        isVisible = true;
+        if (isPlaying) {
+            stop();
+        } else {
+            start(elapsed >= duration);
+        }
+    });
+    replay.addEventListener("click", () => {
+        isVisible = true;
+        start(true);
+    });
+    timeline.addEventListener("pointerdown", (event) => {
+        isVisible = true;
+        const rect = timeline.getBoundingClientRect();
+        seekTo(((event.clientX - rect.left) / rect.width) * duration, isPlaying);
+    });
+    timeline.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+            return;
+        }
+        event.preventDefault();
+        if (event.key === "Home") {
+            seekTo(0, false);
+        } else if (event.key === "End") {
+            seekTo(duration, false);
+        } else {
+            seekTo(elapsed + (event.key === "ArrowRight" ? 1000 : -1000), isPlaying);
+        }
+    });
+
+    if (prefersReducedMotion) {
+        elapsed = duration;
+        setStage(3, false);
+        updateProgress();
+        stop();
+        film.classList.add("is-reduced-motion");
+        return;
+    }
+
+    setStage(0, false);
+    updateProgress();
+    const observer = new IntersectionObserver((entries) => {
+        isVisible = entries.some((entry) => entry.isIntersecting);
+        if (isVisible && !hasStarted) {
+            hasStarted = true;
+            start();
+        } else if (!isVisible) {
+            stop();
+        }
+    }, { threshold: 0.35 });
+
+    observer.observe(film);
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stop();
+        }
+    });
 };
 
 const formatVideoTime = (seconds) => {
@@ -651,6 +1141,7 @@ const setupChartAnimation = () => {
 };
 
 setupTableOfContents();
+setupIclFilm();
 document.querySelectorAll(".demo-block").forEach(renderDemo);
 setupRobotwinVideoControls();
 setupPipelineAnimation();
