@@ -6,12 +6,12 @@
     <meta name="description" content="Zero-WAM learns zero-shot robotic task generalization from in-context human video instructions.">
     <meta name="keywords" content="Zero-WAM, Robotics, World Action Model, In-Context Learning, RoboTwin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zero-WAM: In-Context World Action Pre-training for Zero-shot Task Generalization</title>
+    <title>Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20260824-3">
+    <link rel="stylesheet" href="./static/css/index.css?v=20260825-4">
     <link rel="icon" type="image/webp" href="./static/images/robot-logo-robbyant.webp">
     <script defer src="./static/js/index.js?v=20260824-4"></script>
 </head>
@@ -41,13 +41,37 @@
                     <div class="hero-copy">
                         <h1 class="title is-2 publication-title">
                             <span class="title-line project-name-line"><strong class="project-name">Zero&#8209;WAM</strong></span>
-                            <span class="title-line title-subline">In&#8209;Context World Action Pre&#8209;training for Zero&#8209;shot Task Generalization</span>
+                            <span class="title-line title-subline">In&#8209;Context World&#8209;Action Modeling from Human Videos for Open&#8209;Ended Task Generalization</span>
                         </h1>
 
-                        <div class="is-size-5 publication-authors author-placeholder" aria-label="Authors"></div>
+                        <div class="publication-authors" aria-label="Authors and affiliations">
+                            <div class="author-list">
+                                <span class="author-entry"><a href="https://jiaming-zhou.github.io/" target="_blank" rel="noopener">Jiaming Zhou</a></span>
+                                <span class="author-entry"><a href="https://zqh0253.github.io/" target="_blank" rel="noopener">Qihang Zhang</a><sup>*</sup></span>
+                                <span class="author-entry"><a href="https://gangweix.github.io/" target="_blank" rel="noopener">Gangwei Xu</a></span>
+                                <span class="author-entry"><a href="https://alfayoung.github.io/" target="_blank" rel="noopener">Cunxin Fan</a></span>
+                                <span class="author-entry">Yujie Zhao</span>
+                                <span class="author-entry">Ruilin Wang</span>
+                                <span class="author-entry"><a href="https://ymluo1214.github.io/" target="_blank" rel="noopener">Yiming Luo</a></span>
+                                <span class="author-entry"><a href="https://yangs03.github.io/" target="_blank" rel="noopener">Shuai Yang</a></span>
+                                <span class="author-entry"><a href="https://scholar.google.com/citations?user=Hnh87z4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Xing Zhu</a></span>
+                                <span class="author-entry"><a href="https://shenyujun.github.io/" target="_blank" rel="noopener">Yujun Shen</a></span>
+                                <span class="author-entry"><a href="https://junweiliang.me" target="_blank" rel="noopener">Junwei Liang</a><sup>&dagger;</sup></span>
+                                <span class="author-entry"><a href="https://justimyhxu.github.io/" target="_blank" rel="noopener">Yinghao Xu</a><sup>&dagger;</sup></span>
+                            </div>
+                            <div class="affiliation-list" aria-label="Affiliations">
+                                <span>RobbyAnt</span>
+                                <span>HKUST (GZ)</span>
+                                <span>HKUST</span>
+                            </div>
+                            <div class="author-notes">
+                                <span><sup>*</sup>Project Lead</span>
+                                <span><sup>&dagger;</sup>Corresponding Authors</span>
+                            </div>
+                        </div>
 
                         <div class="publication-links" aria-label="Project links">
-                            <a class="project-link" href="./">[Arxiv]</a>
+                            <a class="project-link" href="./">[arXiv]</a>
                             <a class="project-link" href="https://github.com/jiaming-zhou/Zero-WAM" target="_blank" rel="noopener">[Code]</a>
                             <a class="project-link" href="./">[Data]</a>
                         </div>
@@ -102,7 +126,7 @@
                         <div class="icl-film-gallery" data-film-gallery></div>
                         <div class="icl-gallery-stats" aria-label="HumanGen dataset scale">
                             <div class="icl-gallery-stat"><strong>&gt; 10</strong><span>Dataset Sources</span></div>
-                            <div class="icl-gallery-stat"><strong>&gt; 6k</strong><span>Robotic Tasks</span></div>
+                            <div class="icl-gallery-stat"><strong>&gt; 8k</strong><span>Robotic Tasks</span></div>
                             <div class="icl-gallery-stat"><strong>&gt; 70k</strong><span>Human-robot Pairs</span></div>
                         </div>
                     </div>
@@ -484,7 +508,7 @@
                             </div>
                         </figure>
                         <figure class="video-card">
-                            <figcaption>Robot Video</figcaption>
+                            <figcaption>Robot Rollout</figcaption>
                             <div class="video-shell">
                                 <video class="demo-video robot-video" src="./static/videos/sequential_manipulation_480/seq-01-robot.mp4" autoplay muted loop playsinline preload="metadata"></video>
                                 <div class="video-controls">
@@ -526,7 +550,7 @@
                                     </div>
                                 </figure>
                                 <figure class="video-card insertion-robot-card">
-                                    <figcaption>Robot Video</figcaption>
+                                    <figcaption>Robot Rollout</figcaption>
                                     <div class="video-shell">
                                         <video class="demo-video robot-video" src="./static/videos/fine_grained_insertion_480/insert-03-robot-2x.mp4?v=20260823-2x" autoplay muted loop playsinline preload="metadata"></video>
                                         <span class="video-speed-badge" data-video-speed aria-label="Two times speed">Speed ×2</span>
