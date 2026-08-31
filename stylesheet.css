@@ -147,6 +147,10 @@ span.highlight {
   margin-bottom: 0;
 }
 
+.publications-table {
+  table-layout: fixed;
+}
+
 .publications-table > tbody > tr > td:first-child {
   width: 36% !important;
 }
@@ -292,4 +296,76 @@ span.highlight {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-style: none;
+}
+
+@media (max-width: 700px) {
+  .page-shell,
+  .page-shell > tbody,
+  .page-shell > tbody > tr,
+  .page-shell > tbody > tr > td {
+    display: block;
+    width: calc(100% - 24px) !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .page-shell > tbody,
+  .page-shell > tbody > tr,
+  .page-shell > tbody > tr > td {
+    width: 100% !important;
+  }
+
+  .page-shell > tbody > tr > td > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .intro-table,
+  .intro-table > tbody,
+  .intro-table > tbody > tr,
+  .intro-table > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+  }
+
+  .intro-photo {
+    padding-top: 0 !important;
+    text-align: center;
+  }
+
+  .intro-photo img {
+    width: min(220px, 70%) !important;
+  }
+
+  .publications-table,
+  .publications-table > tbody,
+  .publications-table > tbody > tr,
+  .publications-table > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .publications-table > tbody > tr {
+    padding: 12px 0;
+  }
+
+  .publications-table > tbody > tr > td {
+    padding: 10px 12px !important;
+  }
+
+  .publications-table > tbody > tr > td:first-child,
+  .publications-table > tbody > tr > td:nth-child(2) {
+    width: 100% !important;
+  }
+
+  .publications-table > tbody > tr > td:first-child > img,
+  .zero-wam-publication-preview,
+  .featured-publication-video {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
