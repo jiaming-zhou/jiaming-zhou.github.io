@@ -133,3 +133,163 @@ h2 {
 span.highlight {
   background-color: #dbf1f1;
 }
+
+.publications-heading,
+.publications-table {
+  width: 100%;
+  max-width: 1020px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.publications-heading p {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.publications-table > tbody > tr > td:first-child {
+  width: 36% !important;
+}
+
+.publications-table > tbody > tr > td:nth-child(2) {
+  width: 64% !important;
+}
+
+.publications-table > tbody > tr > td:first-child > img {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+}
+
+.zero-wam-publication-preview {
+  position: relative;
+  width: 340px;
+  max-width: 100%;
+  aspect-ratio: 2000 / 782;
+  overflow: hidden;
+}
+
+.zero-wam-publication-preview > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.zero-wam-preview-media {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.zero-wam-preview-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zero-wam-preview-robot-data {
+  left: 0.65%;
+  top: 8.45%;
+  width: 20.1%;
+  height: 28.75%;
+}
+
+.zero-wam-preview-paired-data {
+  left: 0.7%;
+  top: 48.1%;
+  width: 20.05%;
+  height: 50%;
+}
+
+.zero-wam-preview-instruction {
+  left: 55.05%;
+  top: 75%;
+  width: 10.65%;
+  height: 18.05%;
+}
+
+.zero-wam-preview-multi-human {
+  left: 77.75%;
+  top: 6.65%;
+  width: 11%;
+  height: 18.75%;
+}
+
+.zero-wam-preview-multi-robot {
+  left: 88.75%;
+  top: 6.65%;
+  width: 10.7%;
+  height: 18.75%;
+}
+
+.zero-wam-preview-long-human {
+  left: 77.75%;
+  top: 31.1%;
+  width: 11%;
+  height: 18.9%;
+}
+
+.zero-wam-preview-long-robot {
+  left: 88.75%;
+  top: 31.1%;
+  width: 10.7%;
+  height: 18.9%;
+}
+
+.zero-wam-preview-fine-human {
+  left: 77.75%;
+  top: 55%;
+  width: 11%;
+  height: 18.95%;
+}
+
+.zero-wam-preview-fine-robot {
+  left: 88.75%;
+  top: 55%;
+  width: 10.7%;
+  height: 18.95%;
+}
+
+.zero-wam-preview-simulation-human {
+  left: 77.65%;
+  top: 79.7%;
+  width: 11.1%;
+  height: 18.95%;
+}
+
+.zero-wam-preview-simulation-robot {
+  left: 88.75%;
+  top: 79.7%;
+  width: 10.7%;
+  height: 18.95%;
+}
+
+.featured-publication-details {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.featured-publication-details strong {
+  font-size: 16px;
+}
+
+.featured-publication-details .papertitle {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.featured-publication-details p {
+  line-height: 1.25;
+  margin-bottom: 10px !important;
+}
+
+.featured-publication-video {
+  display: block;
+  width: 340px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-style: none;
+}
